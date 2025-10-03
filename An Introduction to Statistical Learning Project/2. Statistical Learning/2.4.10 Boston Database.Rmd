@@ -1,0 +1,40 @@
+10a) 506 rows, 13 columns, rows represent data points, variables
+
+```{r}
+library(ISLR2)
+Boston
+?Boston
+```
+
+10b)
+
+```{r}
+attach(Boston)
+plot(chas,crim)
+plot(rad,crim)
+plot(medv,crim)
+```
+
+10c) yes
+
+10d) yea some of them do
+
+10e)
+
+```{r}
+table(Boston$chas == 1)
+```
+
+10f)
+
+```{r}
+median(ptratio)
+```
+
+10g)
+
+```{r}
+table(Boston$age)
+```
+
+10h)

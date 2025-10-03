@@ -1,0 +1,24 @@
+
+```{r}
+library(ISLR2)
+```
+
+View()
+head()
+
+```{r}
+View(Auto)
+head(Auto)
+```
+
+```{r}
+dim(Auto)
+Auto = na.omit(Auto)
+dim(Auto)
+```
+
+```{r}
+names(Auto)
+```
+ 
+ 

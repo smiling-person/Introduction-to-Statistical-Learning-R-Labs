@@ -1,0 +1,50 @@
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+attach(Auto)
+```
+
+9a)
+
+```{r}
+pairs(Auto)
+```
+
+9b)
+
+```{r}
+#Filters out non-numeric columns
+is_numeric <- sapply(Auto, is.numeric)
+numeric_Auto <- Auto[, is_numeric]
+correlation_matrix <- cor(numeric_Auto)
+correlation_matrix
+```
+
+9c) Moderate relationship between predictors and response; origin, weight and year are significant predictors. as year increases by 1, mpg tends to increase by 0.750773.
+
+```{r}
+mlr_mpg = lm(mpg ~ cylinders+displacement+horsepower+weight+acceleration+year+origin)
+summary(mlr_mpg)
+```
+
+9d) High leverage point, Residual chart seems to have U shape
+
+```{r}
+par(mfrow = c(2, 2))
+plot(mlr_mpg)
+```
+
+9e)
+
+```{r}
+mlr_mpg2 = lm(mpg ~ cylinders*horsepower)
+summary(mlr_mpg2)
+```
+
+9f)
+
+```{r}
+mlr_mpg3 = lm(mpg ~ cylinders^2)
+summary(mlr_mpg3)
+```

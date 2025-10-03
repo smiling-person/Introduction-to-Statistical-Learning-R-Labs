@@ -1,0 +1,68 @@
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+```
+
+
+
+13a-c) the length of y is 100, β_0 = -1, β_1 = .5
+```{r}
+set.seed(1)
+x = rnorm(100)
+eps = rnorm(100,sd=.25)
+y = -1+.5*x+eps
+length(y)
+```
+d) The plot shows a positive linear relationship between x and y
+```{r}
+plot(x,y)
+```
+
+e) The predicted coefficients are close to equal to the true coefficients.
+```{r}
+model = lm(y~ x)
+summary(model)
+
+```
+
+f)
+```{r}
+plot(x,y)
+abline(model)
+legend("topright", legend = c("Positive Trend Line"))
+```
+
+g) There is no evidence to suggest adding x^2 will improve the model fit.
+```{r}
+model2 = lm(y~x + I(x^2))
+summary(model2)
+```
+
+h) points are a lot closer to the line
+```{r}
+set.seed(1)
+x = rnorm(100)
+eps = rnorm(100,sd=.1)
+y = -1+.5*x+eps
+model2 = lm(y~x)
+plot(x,y)
+abline(model2)
+```
+i) points are further from the line
+```{r}
+set.seed(1)
+x = rnorm(100)
+eps = rnorm(100,sd=.5)
+y = -1+.5*x+eps
+model3 = lm(y~x)
+plot(x,y)
+abline(model3)
+```
+j) confidence interval gets wider with more variance on the error term
+```{r}
+confint(model)
+confint(model2)
+confint(model3)
+```
+

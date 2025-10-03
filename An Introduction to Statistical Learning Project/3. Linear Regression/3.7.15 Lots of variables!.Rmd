@@ -1,0 +1,36 @@
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+attach(Boston)
+```
+
+15a) zn, indus, nox, rm,  age, dis, rad, tax are significant variables
+```{r}
+summary(lm(crim~zn))
+summary(lm(crim~indus))
+summary(lm(crim~chas))
+summary(lm(crim~nox))
+summary(lm(crim~rm))
+summary(lm(crim~age))
+summary(lm(crim~dis))
+summary(lm(crim~rad))
+summary(lm(crim~tax))
+summary(lm(crim~ptratio))
+summary(lm(crim~lstat))
+summary(lm(crim~medv))
+pairs(Boston)
+
+```
+
+b) zn, dis, rad, medv
+```{r}
+multimodel = lm(crim~zn+indus+chas+nox+rm+age+dis+rad+tax+ptratio+lstat+medv)
+summary(multimodel)
+```
+d) no evidence to suggest non-linear association with rad
+```{r}
+model1 = lm(crim~rad+I(rad^2)+I(rad^3))
+summary(model1)
+```
+

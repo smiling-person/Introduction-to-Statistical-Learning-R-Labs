@@ -1,0 +1,42 @@
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+attach(Carseats)
+```
+
+10a)
+
+```{r}
+mlr_Sales = lm(Sales ~ Price+Urban+US)
+summary(mlr_Sales)
+```
+
+10b) For every 1 increase in price Sales tends to decrease by 0.054459. If Urban is Yes, Sales tends to decrease by .0.021916, If US is Yes, Sales tends to increase by 1.200573.
+
+10c) PredictedSales = 13.043469 \* Price - 0.054459 \* UrbanYes + 1.200573 \* USYes
+
+10d) Price and US'snull hypothesis can be rejected
+
+10e)
+
+```{r}
+mlr_Sales2 = lm(Sales ~ Price+US)
+summary(mlr_Sales2)
+
+```
+
+f) According to adj. R\^2, neither modes explain the model well, with both of the models only explaining around 23% of the variation.
+
+g)
+
+```{r}
+confint(mlr_Sales2)
+```
+
+h) There are two outliers for US, and three high leverage points in Price.
+
+```{r}
+plot(Price,Sales)
+plot(US,Sales)
+```

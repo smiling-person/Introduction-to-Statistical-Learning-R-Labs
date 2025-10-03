@@ -1,0 +1,29 @@
+
+
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+attach(Boston)
+```
+
+```{r}
+lm.fit = lm(formula = medv ~ lstat + age, data = Boston)
+summary(lm.fit)
+```
+
+```{r}
+lm.fit <- lm(medv ~ ., data = Boston)
+summary(lm.fit)
+```
+
+```{r}
+library(car)
+vif(lm.fit)
+```
+
+```{r}
+lm.fit1 <- lm(medv ~ . - age, data = Boston)
+summary(lm.fit1)
+lm.fit1 <- update(lm.fit, ~ . - age)
+```

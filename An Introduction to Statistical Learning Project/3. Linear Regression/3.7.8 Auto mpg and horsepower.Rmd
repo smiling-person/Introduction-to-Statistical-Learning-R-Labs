@@ -1,0 +1,35 @@
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+attach(Auto)
+```
+
+8a) There is a strong positive relationship between the predictor and response.
+
+```{r}
+model = lm(mpg~horsepower)
+summary(model)
+confint(model)
+```
+
+8aiv)
+
+```{r}
+predict(model, data.frame(horsepower = 98),interval = "confidence")
+predict(model, data.frame(horsepower = 98),interval = "prediction")
+```
+
+8b)
+
+```{r}
+plot(horsepower, mpg)
+abline(model)
+```
+
+8c) Heteroscedastic, too many data points bunched in 1 area, high leverage points
+
+```{r}
+par(mfrow = c(2, 2))
+plot(model)
+```

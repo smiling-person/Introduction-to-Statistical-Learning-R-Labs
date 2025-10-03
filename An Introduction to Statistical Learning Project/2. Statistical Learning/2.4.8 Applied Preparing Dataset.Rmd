@@ -1,0 +1,54 @@
+```{r}
+library(ISLR2)
+```
+
+8a)
+
+```{r}
+college = College
+```
+
+8b)
+
+```{r}
+rownames(college)
+View(college)
+```
+
+8ci)
+
+```{r}
+summary(college)
+```
+
+8cii)
+
+```{r}
+pairs(college[,1:10])
+```
+
+8ciii)
+
+```{r}
+attach(College)
+plot(Outstate,Private)
+```
+
+8civ)
+
+```{r}
+Elite = rep("No", nrow(college))
+Elite[college$Top10perc > 50] <- "Yes"
+Elite <- as.factor(Elite)
+college <- data.frame(college, Elite)
+summary(Elite)
+plot(Outstate, Elite)
+```
+
+8cv)
+
+```{r}
+hist(Books)
+hist(PhD)
+hist(Grad.Rate)
+```

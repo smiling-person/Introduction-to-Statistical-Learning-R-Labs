@@ -1,0 +1,48 @@
+```{r}
+library(ISLR2)
+```
+
+```{r}
+plot(cylinders,mpg)
+```
+
+
+```{r}
+plot(Auto$cylinders, Auto$mpg)
+attach(Auto)
+plot(cylinders, mpg)
+```
+
+```{r}
+cylinders = as.factor(cylinders)
+plot(cylinders, mpg)
+plot(cylinders , mpg, col = "red")
+plot(cylinders , mpg, col = "red", varwidth = T)
+plot(cylinders , mpg, col = "red", varwidth = T,
+horizontal = T)
+plot(cylinders , mpg, col = "red", varwidth = T,
+xlab = "cylinders", ylab = "MPG")
+```
+
+```{r}
+hist(mpg)
+hist(mpg, col = 2)
+hist(mpg, col = 2, breaks = 15)
+```
+```{r}
+pairs(Auto)
+pairs(Auto[,c("mpg","displacement","horsepower","weight","acceleration")])
+```
+
+```{r}
+plot(horsepower,mpg)
+identify(horsepower,mpg,name)
+```
+
+```{r}
+summary(Auto)
+```
+```{r}
+summary(mpg)
+```
+

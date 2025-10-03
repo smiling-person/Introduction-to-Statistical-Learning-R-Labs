@@ -1,0 +1,63 @@
+```{r}
+library(MASS)
+library(ISLR2)
+rm(list=ls())
+```
+
+14a) y = 2 + 2\*x1 + .3\*x2+ ϵ, β0 = 2, β1 = 2, β2 = .3
+
+```{r}
+set.seed(1)
+x1 <- runif(100)
+x2 <- 0.5 * x1 + rnorm(100) / 10
+y <- 2 + 2 * x1 + 0.3 * x2 + rnorm(100)
+```
+
+b)  moderate positive correlation between x1 and x2
+
+```{r}
+cor(x1,x2)
+plot(x1,x2)
+```
+
+c)  the coefficients are very different, we cannot reject either null hypotheses since high p value
+
+```{r}
+model= lm(y~x1+x2)
+summary(model)
+```
+
+d)  I can reject H0
+
+```{r}
+model1= lm(y~x1)
+summary(model1)
+```
+
+e)  I can reject the H0
+
+```{r}
+model2= lm(y~x2)
+summary(model2)
+```
+
+f)  no, collinearity lowers the p-value of similar variables
+
+g) x2's coefficient had a lower corresponding p-value for the original model, the new point is high leverage point for x2
+```{r}
+x1 <- c(x1, 0.1)
+x2 <- c(x2, 0.8)
+y <- c(y, 6)
+model= lm(y~x1+x2)
+model1= lm(y~x1)
+model2= lm(y~x2)
+```
+
+```{r}
+summary(model)
+summary(model1)
+summary(model2)
+plot(x1,y)
+plot(x2,y)
+```
+
